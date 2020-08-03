@@ -16,8 +16,11 @@
  
  # SpecRnner.html
  lib - library폴더
- src - 소스 폴더
- spec - 테스트 코드
+ src - 소스 폴더(예제)
+ spec - 테스트 코드(예제)
+
+ # 정리파일
+ jasmin-lean - 정리한 파일
  
  테스트러너란
   테스트 코드를 실행하는 녀석
