@@ -41,6 +41,7 @@ indexSpec.html 의 경로를 복사해 crome 주소에 붙여넣기 한다.
 2. ClickCounterView
  2_0) ClickCounter에 의존적이므로 주입확인 테스트 (생성자)
  2_1) 화면에 바인딩하는 기능 updateView
+ 2_1) 데이터를 출력하고 화면에 바인딩하는 기능 getValueAndUpdateView
  2_2) 이벤트를 바인딩하는 기능 click
 
 

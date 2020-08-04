@@ -10,10 +10,20 @@
   <!-- include spec files here... -->
 </head>
   <span id="numSpan"></span>
-  <input type="button" value="upup"/>
+  <input type="button" id="up1" value="up1"/>
 
 <script type="text/javascript">
+  (() => {
+    const clickCounter = ClickCounter();
+    const numSpan = document.getElementById("numSpan");
+    const up1 = document.getElementById("up1");
+    
+    const clickCounterView = ClickCounterView(clickCounter, numSpan, up1);
 
+    const initialValue = clickCounter.getValue();
+
+    clickCounterView.updateView(initialValue);
+  })()
 </script>
 <body>
 </body>
