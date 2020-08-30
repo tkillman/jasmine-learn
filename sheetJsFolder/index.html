@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js"></script>
+<body>
+    onChange로 엑셀데이터 읽기
+    <br/>
+    <input type="file" name="excelFile" id="excelFile" onchange="excelExport2(event, fileLoadData)"/>
+    <input type="button" onclick="fnBtnClick()" value="버튼클릭" />
+</body>
+
+<script type="text/javascript">
+    const fileLoadData = {
+        isLoadingEnd:false,
+        returnObj:{}
+    }
+    const fnBtnClick = function () {
+        console.log('test.html', 'fnBtnClick', 'start');
+        if (!fileLoadData.isLoadingEnd) {
+            alert('파일을 로딩중입니다.');
+        }
+        
+        console.log('fileLoadData.returnObj', fileLoadData.returnObj);
+        console.log('test.html', 'fnBtnClick', 'end');       
+    }
+</script>
+
+</html>
