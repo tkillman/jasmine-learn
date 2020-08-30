@@ -7,27 +7,39 @@
     <title>Document</title>
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js"></script>
+<script src="/sheetJsFolder/src/excelExport.js"></script>
+<script src="/sheetJsFolder/src/excelStateData.js"></script>
 <body>
     onChange로 엑셀데이터 읽기
     <br/>
     <input type="file" name="excelFile" id="excelFile" onchange="excelExport2(event, fileLoadData)"/>
     <input type="button" onclick="fnBtnClick()" value="버튼클릭" />
+    <input type="file" name="testText" id="testText"/>
+    <br/>====== 동적으로 생성 ==========
 </body>
 
 <script type="text/javascript">
-    const fileLoadData = {
-        isLoadingEnd:false,
-        returnObj:{}
+    var excelProcess = ExcelExport(ExcelStateData, document.getElementById("testText"));
+    
+    var blob = new Blob(["aa"], { type: 'text/plain' });
+    objURL = window.URL.createObjectURL(blob);
+            
+    // 이전에 생성된 메모리 해제
+    if (window.__Xr_objURL_forCreatingFile__) {
+        window.URL.revokeObjectURL(window.__Xr_objURL_forCreatingFile__);
     }
-    const fnBtnClick = function () {
-        console.log('test.html', 'fnBtnClick', 'start');
-        if (!fileLoadData.isLoadingEnd) {
-            alert('파일을 로딩중입니다.');
-        }
-        
-        console.log('fileLoadData.returnObj', fileLoadData.returnObj);
-        console.log('test.html', 'fnBtnClick', 'end');       
-    }
+    window.__Xr_objURL_forCreatingFile__ = objURL;
+    var a = document.createElement('a');
+    a.download = "파일명.txt";
+    a.href = objURL;
+    a.text = "aa";
+    document.body.appendChild(a);
+
+    var inputT1 = document.createElement('input');
+    inputT1.type='file';
+    document.body.appendChild(inputT1);
+   
+    //a.click();
 </script>
 
 </html>
